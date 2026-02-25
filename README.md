@@ -318,8 +318,16 @@ Render only visible list items for large datasets.
 
 ### Installation
 ```bash
-git clone https://github.com/yourusername/react-design-patterns.git
-cd react-design-patterns
+git clone https://github.com/Shaswatchoudhary/React_Pattern.git
+cd React_Pattern
+
+# Navigate to specific pattern examples:
+cd "State Reducer Pattern/State Reducer Pattern(advance)"
+npm install
+npm start
+
+# Or explore other examples:
+cd ../controlleduncontrolled/controlleduncontroled
 npm install
 npm start
 ```
@@ -327,17 +335,70 @@ npm start
 ### Project Structure
 ```
 react-design-patterns/
-├── patterns/
-│   ├── hoc/
-│   ├── render-props/
-│   ├── custom-hooks/
-│   ├── compound-components/
-│   ├── context-provider/
-│   ├── state-reducer/
-│   └── performance/
-├── examples/
 ├── README.md
-└── package.json
+├── .gitignore
+├── State Reducer Pattern/
+│   └── State Reducer Pattern(advance)/
+│       ├── public/
+│       ├── src/
+│       │   ├── App.jsx
+│       │   ├── App.css
+│       │   ├── assets/
+│       │   ├── index.css
+│       │   └── main.jsx
+│       ├── package.json
+│       └── vite.config.js
+├── adonisframework/
+│   └── Testing/
+│       ├── app/
+│       ├── bin/
+│       ├── config/
+│       ├── resources/
+│       ├── start/
+│       └── tests/
+├── controlleduncontrolled/
+│   └── controlleduncontroled/
+│       ├── public/
+│       ├── src/
+│       │   ├── App.jsx
+│       │   ├── controlled.jsx
+│       │   ├── Uncontrolled.jsx
+│       │   └── assets/
+│       └── package.json
+├── learning/
+│   ├── public/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   └── assets/
+│   └── package.json
+├── props/
+│   └── vite-project/
+│       ├── public/
+│       ├── src/
+│       │   ├── App.jsx
+│       │   ├── context/
+│       │   ├── dashboard.jsx
+│       │   ├── profile.jsx
+│       │   ├── sidebar.jsx
+│       │   └── hook/
+│       └── package.json
+├── renderprops/
+│   └── renderprops/
+│       ├── public/
+│       ├── src/
+│       │   ├── App.jsx
+│       │   ├── Input.jsx
+│       │   └── assets/
+│       └── package.json
+└── useeffect/
+    ├── package.json
+    └── useeffect/
+        ├── public/
+        ├── src/
+        │   ├── App.jsx
+        │   └── assets/
+        ├── ARCHITECTURE.md
+        └── package.json
 ```
 
 ---
