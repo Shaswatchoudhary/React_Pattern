@@ -1,5 +1,7 @@
 # 🧠 React Design Patterns (2026 Edition)
 
+**By Shaswat Choudhary**
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.2+-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
@@ -366,9 +368,8 @@ Modern React focuses on hooks, composition, and scalability.
 
 ## 📞 Connect
 
-- **LinkedIn**: [Your LinkedIn Profile]
-- **Twitter**: [@yourtwitter]
-- **Portfolio**: [Your Portfolio]
+- **LinkedIn**: [Shaswat Choudhary](https://www.linkedin.com/in/shaswat-choudhary-6a36b824b/)
+- **Portfolio**: [shaswatportfolio.netlify.app](https://shaswatportfolio.netlify.app/)
 
 ---
 
@@ -384,4 +385,4 @@ If this repository helped you understand React patterns better, please give it a
 
 ---
 
-*Last updated: January 2026*
+*Last updated: February 2026*
