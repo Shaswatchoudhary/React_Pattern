@@ -1,16 +1,39 @@
-# React + Vite
+# Props Drilling & Context API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates the **Prop Drilling** anti-pattern and how to solve it using the **Context API**.
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Prop Drilling** is the process of passing props down through multiple layers of components that don't actually need them, just to get the data to a deeply nested child.
 
-## React Compiler
+## 🛠 Key Concepts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Prop Drilling**: Passing `data` from `App -> Sidebar -> Dashboard -> Profile` etc.
+- **Context API**: A built-in React feature to share data across the component tree without passing props.
+- **Provider Pattern**: Creating a `Context.Provider` to wrap your app and provide values to any consumer.
 
-## Expanding the ESLint configuration
+## 🚀 Usage in this project
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Check out `App.jsx` and `context/context.js`:
+
+```javascript
+import UseContext from './context/context';
+
+const [state, dispatch] = useReducer(...);
+
+return (
+  <UseContext.Provider value={state.count}>
+    <Dashboard name={state.count} />
+  </UseContext.Provider>
+);
+```
+
+## 🎯 When to use Context?
+
+- **Global State**: Theme, User Auth, Language.
+- **Settings**: Configuration shared across many components.
+- **Complex UI**: Tabs or Accordions where children need parent state.
+
+## ⚠️ Cautions
+
+Don't over-use context! If you only have to pass a prop down 2 levels, it might be better than setting up a full context. Context should be for truly shared "global" data.

@@ -1,16 +1,52 @@
-# React + Vite
+# Controlled vs Uncontrolled Components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates the differences and use cases for **Controlled** and **Uncontrolled** components in React.
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A **Controlled Component** is one where the state is managed entirely by React.
+An **Uncontrolled Component** is one where the DOM handles the state (usually accessed via a `ref`).
 
-## React Compiler
+## 🛠 Key Differences
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Controlled Component
 
-## Expanding the ESLint configuration
+The component's value is linked to React state. Updates happen via an `onChange` handler.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```javascript
+const [value, setValue] = useState("");
+
+<input 
+  value={value} 
+  onChange={(e) => setValue(e.target.value)} 
+/>
+```
+
+- **Pros**: Predictable, easy to validate, reactive.
+- **Cons**: More boilerplate, re-renders on every keystroke.
+
+### 2. Uncontrolled Component
+
+The DOM handles the input value. You use a `useRef` to pull the value whenever you need it (e.g., on form submission).
+
+```javascript
+const inputRef = useRef(null);
+
+const handleSubmit = () => {
+  console.log(inputRef.current.value);
+};
+
+<input ref={inputRef} defaultValue="Default text" />
+```
+
+- **Pros**: Less boilerplate, closer to native HTML behavior.
+- **Cons**: Less "React-way" for real-time validation or synchronization.
+
+## 🚀 Usage in this project
+
+Check out `controlled.jsx` and `Uncontrolled.jsx` to see the side-by-side implementation.
+
+## 🎯 When to use?
+
+- **Use Controlled** for: complex forms, real-time validation, dynamic inputs, or when multiple components need to stay in sync.
+- **Use Uncontrolled** for: simple one-time data collection (like login forms), integration with non-React libraries, or deep performance optimizations.

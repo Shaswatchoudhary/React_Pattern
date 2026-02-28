@@ -1,16 +1,40 @@
-# React + Vite
+# Render Props Pattern
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates the **Render Props Pattern**, a powerful way to share component logic in React.
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The **Render Props Pattern** is a technique where a component receives a function as a prop and calls that function to determine what to render. It's an alternative to HOCs (Higher-Order Components) for sharing common logic.
 
-## React Compiler
+## 🛠 Key Concepts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dynamic UI**: Let the user of a component decide how to draw its data.
+- **Logic Re-use**: Share logic between components without the "nesting" of HOCs.
 
-## Expanding the ESLint configuration
+## 🚀 Usage in this project
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Check out `App.jsx` and `Input.jsx`. The `Input` component doesn't know what to draw below it; it just calls the function it gets via `renderTextBelow`.
+
+```javascript
+/* Input.jsx */
+return (
+  <div className="input-wrapper">
+    <input value={value} onChange={...} />
+    {this.props.renderTextBelow(value)}
+  </div>
+);
+
+/* App.jsx */
+<Input renderTextBelow={(val) => <p>The value is {val}</p>} />
+<Input renderTextBelow={(val) => <p>Value * 10 is {val * 10}</p>} />
+```
+
+## 🎯 When to use?
+
+- **Cross-Component Logic**: Mouse tracking, data fetching, or scroll tracking.
+- **Dynamic Content**: When you want to provide "slots" for users to insert their own UI elements.
+- **Highly Configurable UI**: When a single central component needs to look completely different in different parts of your app.
+
+## 🧠 Modern Replacement
+
+While **Custom Hooks** have largely replaced Render Props (and HOCs) for logic sharing, Render Props are still great for building flexible UI libraries and layout systems!

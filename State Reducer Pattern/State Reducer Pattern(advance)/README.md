@@ -1,16 +1,42 @@
-# React + Vite
+# State Reducer Pattern (Advanced)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates the **State Reducer Pattern** in React using the `useReducer` hook.
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The State Reducer Pattern is a powerful design pattern that allows you to decouple your component's state logic from its UI. By using a reducer, you can centralize complex state transitions, making them more predictable and easier to test.
 
-## React Compiler
+## 🛠 Key Concepts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Reducer Function**: A pure function that takes the current state and an action, and returns a new state.
+- **Action**: An object describing what happened (e.g., `{ type: 'TOGGLE' }`).
+- **Dispatch**: A function used to send actions to the reducer.
 
-## Expanding the ESLint configuration
+## 🚀 Example: Toggle Component
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+In this example, we manage a simple `isOn` state using `useReducer`.
+
+```javascript
+const toggleReducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE':
+      return { isOn: !state.isOn };
+    default:
+      return state;
+  }
+};
+
+const [state, dispatch] = useReducer(toggleReducer, { isOn: false });
+```
+
+## 🎯 When to use it?
+
+- When you have complex state logic involving multiple sub-values.
+- When the next state depends on the previous one.
+- When you want to stabilize the state logic for unit testing.
+
+## 🏗 Features
+
+- **Centralized Logic**: All state updates happen in one place.
+- **Predictability**: Given the same state and action, the reducer always returns the same result.
+- **Easy Extension**: Adding new actions (like `RESET` or `SET_ON`) is simple.

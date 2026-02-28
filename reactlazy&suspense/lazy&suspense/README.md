@@ -1,16 +1,49 @@
-# React + Vite
+# React Lazy, Suspense & ErrorBoundary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates **Code Splitting** in React using `React.lazy` and handling loading/error states.
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Code Splitting** is the process of breaking your JavaScript bundle into smaller "chunks" that can be loaded on demand. This significantly improves the initial load time of your application.
 
-## React Compiler
+## 🛠 Key Concepts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. React.lazy
 
-## Expanding the ESLint configuration
+It's a function that lets you dynamic import a component. It returns a "lazy" component that is loaded asynchronously.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```javascript
+const HeavyComponent = React.lazy(() => import("./HeavyComponent"));
+```
+
+### 2. Suspense
+
+Is a built-in React component that provides a "fallback" UI (like a loading spinner) while the lazy component is still loading.
+
+```javascript
+<Suspense fallback={<p>Loading...</p>}>
+  <HeavyComponent />
+</Suspense>
+```
+
+### 3. ErrorBoundary
+
+A component that catches JavaScript errors in its child component tree, logs those errors, and displays a fallback UI instead of crashing the entire app.
+
+```javascript
+<ErrorBoundary>
+  <Suspense fallback={<p>Loading...</p>}>
+    <HeavyComponent />
+  </Suspense>
+</ErrorBoundary>
+```
+
+## 🚀 Usage in this project
+
+Check out `App.jsx` and `Errorboundary.jsx`. We've even simulated a 2-second network delay to showcase the `fallback` and the `ErrorBoundary` in action!
+
+## 🎯 When to use?
+
+- **Route-based splitting**: Only load the code for the page the user is currently on.
+- **Heavy UI**: Modals, large charts, or graphs that are not needed immediately.
+- **Third-party libraries**: Chunks that wrap large libraries like `lodash` or `chart.js`.

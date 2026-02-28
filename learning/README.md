@@ -1,16 +1,31 @@
-# React + Vite
+# Learning React Patterns (Vite Template)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **Vite + React** project used for exploring various React architectural patterns.
 
-Currently, two official plugins are available:
+## 📌 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  **Clone the Repo**: `git clone https://github.com/Shaswatchoudhary/React_Pattern.git`
+2.  **Explore a Pattern**: Navigate to one of the folder in the `learn/` root directory.
+3.  **Install dependencies**: `npm install`
+4.  **Run Development Server**: `npm run dev`
 
-## React Compiler
+## 🛠 Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Each folder in this repository represents a standalone React experiment. Check individual `README.md` files in those folders for specific implementation details on patterns like:
 
-## Expanding the ESLint configuration
+- **State Reducer Pattern**
+- **Controlled vs Uncontrolled Components**
+- **Props Drilling & UseContext**
+- **React Lazy & Suspense**
+- **Render Props Pattern**
+- **useEffect & Lifecycle**
+- **Debouncing & Search Optimization**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### **Vite Features**
+This setup provides a minimal, ultra-fast development environment using:
+
+- **HMR (Hot Module Replacement)**: Instant updates as you save files.
+- **ESLint**: Basic linting rules for React best practices.
+- **Fast Refresh**: Persistent state across code changes.
