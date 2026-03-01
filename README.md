@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="./assets/banner.png" alt="React Patterns Handbook Banner" width="100%" />
 
   # 🧠 React Patterns Handbook (2026 Edition)
   ### Architecture • Performance • Scalable Systems
